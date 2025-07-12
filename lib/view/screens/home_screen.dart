@@ -6,13 +6,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(color: Colors.white70),
+     padding: EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          
           Container(
             height: 130,
             width: 130,
