@@ -9,12 +9,20 @@ class SearchScreen extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset("assets/images/bgImage.jpeg",
+          height: double.infinity,
+            width: double.infinity,
             fit: BoxFit.cover,
-            height: 300,
           ),
-          SizedBox(height: 300, child: Center(child: Text("Hello Mo Kwasia", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),)))
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              backgroundBlendMode: BlendMode.luminosity,
+              color: Colors.black87
+            ),
+            child: Center(child: Text("Hello", style: TextStyle(color: Colors.green, fontSize: 30),)),
+          ),
         ],
-
       ),
     );
   }

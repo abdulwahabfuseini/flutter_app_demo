@@ -8,20 +8,8 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return  NavigationBar(
-      destinations: [
-        NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-        NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
-      ],
-      onDestinationSelected: (int value) {
-        setState(() {
-          currentIndex = value;
-        });
-      },
-      selectedIndex: currentIndex,
-    );
+    return const Placeholder();
   }
 }
