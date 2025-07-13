@@ -10,13 +10,13 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: kMtnYellow,
       appBar: AppBar(
         backgroundColor: kMtnYellow,
+        elevation: 0, // Set elevation to 0 to blend with the Scaffold
         title: const Text(
           'Yo! ABDUL',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-          // Placeholder for MTN logo
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: Text(
@@ -31,15 +31,19 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.chat_bubble_outline),
+            icon: const Icon(Icons.chat_bubble_outline, color: kMtnBlack),
             onPressed: () {},
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+          // Adding both topRight and topLeft for a symmetrical look
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
             color: Colors.white,
           ),
           child: Padding(
@@ -55,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSpacing: 10,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  childAspectRatio: 1.7,
+                  childAspectRatio: 2.7,
                   children: [
                     _buildBalanceCard(
                       Icons.phone_android,
@@ -77,12 +81,12 @@ class HomeScreen extends StatelessWidget {
                 _buildSectionHeader('Quick access', () {}),
                 const SizedBox(height: 10),
                 GridView.count(
-                  crossAxisCount: 4, // We have 4 items, so we want 4 columns
+                  crossAxisCount: 4,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   physics: const NeverScrollableScrollPhysics(),
-                  childAspectRatio: 1.1,
-                  shrinkWrap: true, // Important inside a SingleChildScrollView
+                  childAspectRatio: 1.6, // Adjusted for a more square look
+                  shrinkWrap: true,
                   children: [
                     _buildQuickAccessItem(Icons.wifi_tethering, 'Data Bundle'),
                     _buildQuickAccessItem(Icons.star_border, 'Just4U'),
@@ -94,18 +98,54 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
-                // The wider buttons
+                // --- THIS CALLING CODE IS CORRECT ---
                 Row(
                   children: [
                     Expanded(
-                      child: _buildWideQuickAccessButton('MTNPulse', kMtnBlack),
+                      child: _buildWideQuickAccessButton(
+                        color: kMtnBlack,
+                        child: RichText(
+                          text: TextSpan(
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: 'MTN',
+                                style: TextStyle(color: kMtnYellow),
+                              ),
+                              const TextSpan(
+                                text: 'Pulse',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: _buildWideQuickAccessButton(
-                        'CallerTunez',
-                        Colors.pink.shade300,
-                        icon: Icons.music_note,
+                        color: Colors.pink.shade300,
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.music_note,
+                              color: Colors.white,
+                              size: 18,
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              'CallerTunez',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -140,49 +180,45 @@ class HomeScreen extends StatelessWidget {
     String value,
     String bonus,
   ) {
+    // A slightly cleaner implementation of your card design
     return Card(
       color: kMtnYellow,
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
-              child: Row(
-                children: [
-                  Icon(icon, color: Colors.black),
-                  const SizedBox(width: 5),
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+      clipBehavior:
+          Clip.antiAlias, // This ensures children respect the border radius
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch, // Make children stretch
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            child: Row(
+              children: [
+                Icon(icon, color: Colors.black, size: 20),
+                const SizedBox(width: 8),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: kLightGrey,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  bottomLeft: Radius.circular(12),
-                  bottomRight: Radius.circular(12),
                 ),
-              ),
+              ],
+            ),
+          ),
+          Expanded(
+            // Use Expanded to fill the remaining space
+            child: Container(
+              color: kLightGrey,
               padding: const EdgeInsets.symmetric(
-                horizontal: 8.0,
+                horizontal: 12.0,
                 vertical: 10.0,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Center the content
                 children: [
                   Text(
                     value,
@@ -192,7 +228,7 @@ class HomeScreen extends StatelessWidget {
                       color: kMtnBlack,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 4),
                   Text(
                     bonus,
                     style: const TextStyle(fontSize: 12, color: kDeepGrey),
@@ -200,44 +236,46 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildQuickAccessItem(IconData icon, String label) {
-    return Container(
-      padding: const EdgeInsets.only(top: 15, left: 5, right: 5, bottom: 15),
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            spreadRadius: 1,
-            blurRadius: 5,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                // <<< FIX #1: DEPRECATION WARNING FIXED
+                color: Colors.grey.withAlpha(51), // From withOpacity(0.2)
+                spreadRadius: 1,
+                blurRadius: 5,
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Column(
-        children: [
-          Icon(icon, size: 30, color: Colors.white),
-          const SizedBox(height: 8),
-          Text(
-            label,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 12, color: Colors.white),
-          ),
-        ],
-      ),
+          child: Icon(icon, size: 30, color: Colors.white),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          label,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 12, color: kMtnBlack),
+        ),
+      ],
     );
   }
 
-  Widget _buildWideQuickAccessButton(
-    String text,
-    Color color, {
-    IconData? icon,
+  // <<< FIX #2: THE CORRECT FUNCTION DEFINITION TO MATCH THE CALLS
+  Widget _buildWideQuickAccessButton({
+    required Widget child,
+    required Color color,
   }) {
     return ElevatedButton(
       onPressed: () {},
@@ -246,19 +284,7 @@ class HomeScreen extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         padding: const EdgeInsets.symmetric(vertical: 16),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (icon != null) ...[
-            Icon(icon, color: Colors.white, size: 18),
-            const SizedBox(width: 8),
-          ],
-          Text(
-            text,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
+      child: child,
     );
   }
 }
