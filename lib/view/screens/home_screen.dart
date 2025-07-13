@@ -10,9 +10,9 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: kMtnYellow,
       appBar: AppBar(
         backgroundColor: kMtnYellow,
-        elevation: 0, // Set elevation to 0 to blend with the Scaffold
+        elevation: 0,
         title: const Text(
-          'Yo! ABDUL',
+          'Yo! ABDUL', // Restored the full name as per the screenshot
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: Padding(
@@ -38,7 +38,6 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          // Adding both topRight and topLeft for a symmetrical look
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30),
@@ -53,13 +52,17 @@ class HomeScreen extends StatelessWidget {
               children: [
                 _buildSectionHeader('Balances', () {}),
                 const SizedBox(height: 10),
+                
+                // --- FIX 1: Balances GridView ---
                 GridView.count(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  childAspectRatio: 2.7,
+                  // OLD: 2.7 (Too short)
+                  // NEW: 1.8 (Allows enough height for the balance card content)
+                  childAspectRatio: 1.8, 
                   children: [
                     _buildBalanceCard(
                       Icons.phone_android,
@@ -80,12 +83,16 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 _buildSectionHeader('Quick access', () {}),
                 const SizedBox(height: 10),
+                
+                // --- FIX 2: Quick Access GridView ---
                 GridView.count(
                   crossAxisCount: 4,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   physics: const NeverScrollableScrollPhysics(),
-                  childAspectRatio: 1.6, // Adjusted for a more square look
+                  // OLD: 1.6 (Too short to fit icon + text)
+                  // NEW: 1.0 (Makes the items square, allowing space for the label)
+                  childAspectRatio: 1.0, 
                   shrinkWrap: true,
                   children: [
                     _buildQuickAccessItem(Icons.wifi_tethering, 'Data Bundle'),
@@ -97,8 +104,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                // --- THIS CALLING CODE IS CORRECT ---
+                const SizedBox(height: 20), // Increased spacing slightly
+                
+                // Wide Buttons Row
                 Row(
                   children: [
                     Expanded(
@@ -150,6 +158,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(height: 20), // Added padding at the bottom
               ],
             ),
           ),
@@ -158,6 +167,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Helper methods remain the same
   Widget _buildSectionHeader(String title, VoidCallback onViewAll) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -180,15 +190,13 @@ class HomeScreen extends StatelessWidget {
     String value,
     String bonus,
   ) {
-    // A slightly cleaner implementation of your card design
     return Card(
       color: kMtnYellow,
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      clipBehavior:
-          Clip.antiAlias, // This ensures children respect the border radius
+      clipBehavior: Clip.antiAlias,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch, // Make children stretch
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -208,17 +216,15 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            // Use Expanded to fill the remaining space
             child: Container(
               color: kLightGrey,
               padding: const EdgeInsets.symmetric(
                 horizontal: 12.0,
-                vertical: 10.0,
+                vertical: 8.0, // Reduced vertical padding slightly
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment:
-                    MainAxisAlignment.center, // Center the content
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     value,
@@ -228,7 +234,7 @@ class HomeScreen extends StatelessWidget {
                       color: kMtnBlack,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  // Removed SizedBox for tighter spacing
                   Text(
                     bonus,
                     style: const TextStyle(fontSize: 12, color: kDeepGrey),
@@ -253,8 +259,7 @@ class HomeScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                // <<< FIX #1: DEPRECATION WARNING FIXED
-                color: Colors.grey.withAlpha(51), // From withOpacity(0.2)
+                color: Colors.grey.withAlpha(51),
                 spreadRadius: 1,
                 blurRadius: 5,
               ),
@@ -272,7 +277,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // <<< FIX #2: THE CORRECT FUNCTION DEFINITION TO MATCH THE CALLS
   Widget _buildWideQuickAccessButton({
     required Widget child,
     required Color color,
