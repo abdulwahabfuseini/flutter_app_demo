@@ -1,6 +1,6 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/view/screens/home_screen.dart';
+import 'package:flutter_app_demo/view/screens/home/home_screen.dart';
 import 'package:flutter_app_demo/view/screens/momo_screen.dart';
 import 'package:flutter_app_demo/view/screens/more_screen.dart';
 import 'package:flutter_app_demo/view/screens/shop_screen.dart';
