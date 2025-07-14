@@ -122,8 +122,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       GridView.count(
                         crossAxisCount: 4,
                         mainAxisSpacing: 10,
+                        crossAxisSpacing: 6,
                         physics: const NeverScrollableScrollPhysics(),
-                        childAspectRatio: 0.8,
+                        childAspectRatio: 1.2,
                         shrinkWrap: true,
                         children: [
                           buildBalanceAccessCard((Icons.share), "Data Bundle"),

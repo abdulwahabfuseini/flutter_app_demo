@@ -113,14 +113,17 @@ Widget buildBalanceCard(
 
 Widget buildBalanceAccessCard(IconData icon, String value) {
   return Container(
+    padding: EdgeInsets.all(6),
     decoration: BoxDecoration(
       color: Colors.black,
       borderRadius: BorderRadius.circular(10),
     ),
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      spacing: 4,
       children: [
-        Icon(icon),
-        Text(value, style: TextStyle(fontWeight: FontWeight.w700)),
+        Icon(icon, color: Colors.white,),
+        Text(value, style: TextStyle(fontWeight: FontWeight.w700, color: Colors.white)),
       ],
     ),
   );
