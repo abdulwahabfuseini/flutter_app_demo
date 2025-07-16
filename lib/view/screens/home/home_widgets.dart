@@ -54,7 +54,7 @@ Widget balanceCard(IconData icon, String title, String value, String bonus) {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
           child: Row(
             children: [
-              Icon(icon, size: 20,),
+              Icon(icon, size: 18),
               const SizedBox(width: 8),
               Text(
                 title,
@@ -80,7 +80,16 @@ Widget balanceCard(IconData icon, String title, String value, String bonus) {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text(value, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),), Text(bonus, style: TextStyle(fontWeight: FontWeight.w400),)],
+                  children: [
+                    Text(
+                      value,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Text(bonus, style: TextStyle(fontWeight: FontWeight.w400)),
+                  ],
                 ),
               ),
             ),
@@ -91,22 +100,54 @@ Widget balanceCard(IconData icon, String title, String value, String bonus) {
   );
 }
 
-
-Widget quickAccessCard(IconData icon, String value){
+Widget quickAccessCard(IconData icon, String value) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 4, vertical: 6),
     decoration: BoxDecoration(
       color: Colors.black,
-      borderRadius: BorderRadius.circular(10)
+      borderRadius: BorderRadius.circular(10),
     ),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
 
-      spacing: 4,
+      spacing: 5,
       children: [
-        Icon(icon, color: Colors.white, size: 30,),
-        Text(value, style: TextStyle(fontWeight: FontWeight.w400, color: Colors.white, fontSize: 13),)
+        Icon(icon, color: Colors.white, size: 30),
+        Text(
+          value,
+          style: TextStyle(
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+            fontSize: 13,
+          ),
+        ),
       ],
+    ),
+  );
+}
+
+Widget quickAccessButtons({required String text, IconData? icon}) {
+  return Container(
+    decoration: BoxDecoration(
+      color: Colors.black,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Center(
+      child: RichText(
+        text: const TextSpan(
+          style: TextStyle(fontSize: 20, color: Colors.black, wordSpacing: 4),
+          children: [
+            TextSpan(
+              text: "",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            TextSpan(
+              text: " ABDUL",
+              style: TextStyle(fontWeight: FontWeight.w300),
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }
