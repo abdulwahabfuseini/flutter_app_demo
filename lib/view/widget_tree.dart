@@ -3,6 +3,7 @@ import 'package:flutter_app_demo/view/screens/home/home_screen.dart';
 import 'package:flutter_app_demo/view/screens/more/more_screen.dart';
 import 'package:flutter_app_demo/view/screens/momo/momo_screen.dart';
 import 'package:flutter_app_demo/view/screens/shop/shop_screen.dart';
+import '../../../utils/constants.dart';
 
 class WidgetTree extends StatefulWidget {
   const WidgetTree({super.key});
@@ -43,7 +44,7 @@ class _WidgetTreeState extends State<WidgetTree> {
         onTap: onItemTapped,
         currentIndex: _selectedItemIndex,
         showUnselectedLabels: true,
-        selectedItemColor: Colors.amber,
+        selectedItemColor: kMtnYellow,
         unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(
