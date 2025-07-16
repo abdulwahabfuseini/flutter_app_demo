@@ -126,24 +126,48 @@ Widget quickAccessCard(IconData icon, String value) {
   );
 }
 
-Widget quickAccessButtons({required String text, IconData? icon}) {
+Widget quickAccessButtons({
+   String? text,
+   String? text2,
+   String? text3,
+   String? text4,
+  IconData? icon,
+}) {
   return Container(
+    padding: EdgeInsets.all(10),
     decoration: BoxDecoration(
       color: Colors.black,
       borderRadius: BorderRadius.circular(10),
     ),
     child: Center(
       child: RichText(
-        text: const TextSpan(
+        text: TextSpan(
           style: TextStyle(fontSize: 20, color: Colors.black, wordSpacing: 4),
           children: [
             TextSpan(
-              text: "",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              text: text,
+              style: TextStyle(fontWeight: FontWeight.bold, color: kMtnYellow),
             ),
             TextSpan(
-              text: " ABDUL",
-              style: TextStyle(fontWeight: FontWeight.w300),
+              text: text2,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            TextSpan(
+              text: text3,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            TextSpan(
+              text: text4,
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                color: Colors.grey,
+              ),
             ),
           ],
         ),
