@@ -86,7 +86,7 @@ class ShopScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
-                      spacing: 10,
+                      spacing: 15,
                       children: [
                         Text("Get BroadBand", style: TextStyle(fontSize: 18)),
                         Image.asset("assets/images/shop.jpg")
