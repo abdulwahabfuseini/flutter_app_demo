@@ -11,6 +11,20 @@ class Account extends StatefulWidget {
 class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text(
+          "Account",
+          style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+        ),
+      ),
+      body: Center(
+        child: Text(
+          "Account Screen",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    );
   }
 }
