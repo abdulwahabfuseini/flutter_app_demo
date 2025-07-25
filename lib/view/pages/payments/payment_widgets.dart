@@ -21,7 +21,7 @@ class PaymentListItem extends StatelessWidget {
     return ListTile(
       // The ListTile simplifies the layout significantly
       leading: CircleAvatar(
-        radius: 22,
+        radius: 20,
         backgroundColor: iconBackgroundColor,
         child: Icon(icon, size: 20, color: iconColor),
       ),
@@ -33,7 +33,7 @@ class PaymentListItem extends StatelessWidget {
         subtitle,
         style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
       ),
-      trailing: Icon(Icons.chevron_right, color: Colors.grey.shade400),
+      trailing: Icon(Icons.chevron_right, color: Colors.black),
       onTap: () {
         // Add navigation or action here
       },

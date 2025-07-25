@@ -65,6 +65,20 @@ class PaymentsPage extends StatelessWidget {
       'iconBgColor': const Color(0xFFFFF6E5),
       'iconColor': const Color(0xFFF2994A),
     },
+    {
+      'icon': Icons.receipt_long,
+      'title': 'Buy Airtime',
+      'subtitle': 'Make payments for bills and fees',
+      'iconBgColor': const Color(0xFFFFF6E5),
+      'iconColor': const Color(0xFFF2994A),
+    },
+    {
+      'icon': Icons.receipt_long,
+      'title': 'Pay Bills',
+      'subtitle': 'Make payments for bills and fees',
+      'iconBgColor': const Color(0xFFFFF6E5),
+      'iconColor': const Color(0xFFF2994A),
+    },
   ];
 
   @override
@@ -87,11 +101,13 @@ class PaymentsPage extends StatelessWidget {
                 topRight: Radius.circular(30),
               ),
               child: ListView.separated(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14.0,
+                  vertical: 24.0,
+                ),
                 itemCount: paymentOptions.length,
                 separatorBuilder: (context, index) =>
-                const SizedBox(height: 16),
+                    const SizedBox(height: 16),
                 itemBuilder: (context, index) {
                   final item = paymentOptions[index];
                   return PaymentListItem(
@@ -99,7 +115,7 @@ class PaymentsPage extends StatelessWidget {
                     title: item['title'],
                     subtitle: item['subtitle'],
                     iconBackgroundColor: item['iconBgColor'],
-                    iconColor: item['iconColor'],
+                    iconColor: Colors.black,
                   );
                 },
               ),
@@ -112,7 +128,7 @@ class PaymentsPage extends StatelessWidget {
 
   Widget _buildCustomAppBar() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -120,7 +136,10 @@ class PaymentsPage extends StatelessWidget {
           const Text(
             'Payments',
             style: TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const Spacer(),
           // This makes the image both grayscale AND semi-transparent.
@@ -132,11 +151,11 @@ class PaymentsPage extends StatelessWidget {
                 0.2126, 0.7152, 0.0722, 0, 0,
                 0.2126, 0.7152, 0.0722, 0, 0,
                 0.2126, 0.7152, 0.0722, 0, 0,
-                0,      0,      0,      1, 0,
+                0, 0, 0, 1, 0,
               ]),
-              child: Image.asset('assets/images/GCB_brandmark.png', height: 40),
+              child: Image.asset('assets/images/GCB_brandmark.png', height: 45),
             ),
-          )
+          ),
         ],
       ),
     );

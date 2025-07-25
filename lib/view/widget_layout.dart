@@ -50,7 +50,7 @@ class _WidgetLayoutState extends State<WidgetLayout> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         // The key fix is to provide an explicit height for the BottomAppBar
-        // to contain the BottomNavigationBar with its labels.
+        // to contain the BottomNavigationBar with its labels
         height: 88.0,
         padding: EdgeInsets.only(top: 30),
         // shape: const CircularNotchedRectangle(), // This will now work correctly
@@ -60,21 +60,25 @@ class _WidgetLayoutState extends State<WidgetLayout> {
         elevation: 10,
         child: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.home_outlined), activeIcon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
               icon: Icon(Icons.payment),
+              activeIcon: Icon(Icons.payment_sharp),
               label: 'Payments',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.credit_card),
+              icon: Icon(Icons.payments_outlined),
+              activeIcon: Icon(Icons.payments_sharp),
               label: 'Cards',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.help_outline),
+              activeIcon: Icon(Icons.help),
               label: 'Help',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.more_horiz),
+              icon: Icon(Icons.dashboard_outlined),
+              activeIcon: Icon(Icons.dashboard),
               label: 'More',
             ),
           ],

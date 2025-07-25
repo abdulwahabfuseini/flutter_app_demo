@@ -12,7 +12,10 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 20.0,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -20,12 +23,24 @@ class LoginPage extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: TextButton(
                     onPressed: () {},
-                    child: const Text(
-                      'Switch User?',
-                      style: TextStyle(
-                        color: Color(0xFF3A4F5C),
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      spacing: 3,
+                      children: [
+                        Image.asset(
+                          "assets/images/bot.png",
+                          width: 40,
+                          height: 40,
+                        ),
+                        Text(
+                          'Switch User?',
+                          style: TextStyle(
+                            color: Colors.teal,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -33,45 +48,67 @@ class LoginPage extends StatelessWidget {
                 Center(
                   child: Column(
                     children: [
-                      Image.asset('assets/images/GCB_brandmark.png', height: 60),
-                      const SizedBox(height: 30),
-                      const Text(
-                        'Welcome Back,',
-                        style: TextStyle(fontSize: 18, color: Colors.black54),
+                      Image.asset(
+                        'assets/images/GCB_brandmark.png',
+                        height: 80,
                       ),
-                      const Text(
-                        'Abdul Wahab Fuseni',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF3A4F5C),
-                        ),
+                      const SizedBox(height: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 26,
+                            backgroundColor: Colors.amberAccent,
+                            child: Icon(
+                              Icons.person,
+                              size: 50,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Welcome Back,',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              const Text(
+                                'Abdul Wahab Fuseini',
+                                style: TextStyle(
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 60),
                 const Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 17,
                     color: Colors.black54,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 40),
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Enter Password',
-                    prefixIcon: const Icon(Icons.lock_outline, color: Color(0xFF3A4F5C)),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.grey.shade300),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.grey.shade300),
+                    prefixIcon: Image.asset(
+                      "assets/images/bot.png",
+                      width: 40,
+                      height: 40,
                     ),
                   ),
                 ),
@@ -81,18 +118,20 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {},
                     child: const Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Color(0xFF3A4F5C)),
+                      style: TextStyle(color: Colors.teal, fontSize: 16),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 85),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const WidgetLayout()),
+                        MaterialPageRoute(
+                          builder: (context) => const WidgetLayout(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -109,17 +148,43 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
-                const Center(child: Text('OR', style: TextStyle(color: Colors.grey))),
-                const SizedBox(height: 20),
-                Center(
-                  child: TextButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.face_retouching_natural, color: Color(0xFF3A4F5C), size: 30),
-                    label: const Text(
-                      'Use Face ID Instead?',
-                      style: TextStyle(color: Color(0xFF3A4F5C), fontSize: 16),
+                const SizedBox(height: 60),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Divider(color: Colors.grey, height: 1, thickness: 2),
+                    Center(
+                      child: Text('OR', style: TextStyle(color: Colors.grey)),
                     ),
+                    Divider(color: Colors.grey, height: 1, thickness: 2),
+                  ],
+                ),
+
+                const SizedBox(height: 10),
+                Center(
+                  child: ElevatedButton(
+
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 5,
+                      children: [
+                        Image.asset(
+                          "assets/images/facial-recog.png",
+                          width: 40,
+                          height: 40,
+                        ),
+                        const Text(
+                          'Use Face ID Instead?',
+                          style: TextStyle(
+                            color: Colors.teal,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    onPressed: () {},
                   ),
                 ),
               ],
