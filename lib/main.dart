@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/view/pages/login/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF4F6F8), // Light grey background
       ),
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: const LoginPage(),
     );
   }
 }

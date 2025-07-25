@@ -1,28 +1,44 @@
+// lib/payment_list_item.dart
+
 import 'package:flutter/material.dart';
 
-Widget paymentLists(IconData icon, String title, String value, IconData icon2 ){
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Row(
-        spacing: 12,
-        children: [
-          CircleAvatar(
-            radius: 18,
-            child: Icon(icon, size: 15,),
-          ),
-          Column(
-            spacing: 4,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
-              Text(value, style: TextStyle(color: Colors.grey, fontSize: 15),)
-            ],
-          ),
-        ],
+class PaymentListItem extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final Color iconBackgroundColor;
+  final Color iconColor;
+
+  const PaymentListItem({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.iconBackgroundColor,
+    required this.iconColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      // The ListTile simplifies the layout significantly
+      leading: CircleAvatar(
+        radius: 22,
+        backgroundColor: iconBackgroundColor,
+        child: Icon(icon, size: 20, color: iconColor),
       ),
-      Icon(icon2)
-    ],
-  );
+      title: Text(
+        title,
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
+      ),
+      trailing: Icon(Icons.chevron_right, color: Colors.grey.shade400),
+      onTap: () {
+        // Add navigation or action here
+      },
+    );
+  }
 }

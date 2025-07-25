@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/view/widget_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dashboard_screen.dart'; // We will create this next
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                 Center(
                   child: Column(
                     children: [
-                      Image.asset('assets/images/gcb_logo.png', height: 60),
+                      Image.asset('assets/images/GCB_brandmark.png', height: 60),
                       const SizedBox(height: 30),
                       const Text(
                         'Welcome Back,',
@@ -92,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                        MaterialPageRoute(builder: (context) => const WidgetLayout()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
