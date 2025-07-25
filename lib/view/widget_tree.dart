@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/view/pages/payments/payments_page.dart';
 import 'package:flutter_app_demo/view/screens/home/home_screen.dart';
 import 'package:flutter_app_demo/view/screens/more/more_screen.dart';
 import 'package:flutter_app_demo/view/screens/momo/momo_screen.dart';
@@ -15,6 +16,7 @@ class WidgetTree extends StatefulWidget {
 class _WidgetTreeState extends State<WidgetTree> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
+    PaymentsPage(),
     ShopScreen(),
     MomoScreen(),
     MoreScreen(),
