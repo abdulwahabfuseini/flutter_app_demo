@@ -7,50 +7,50 @@ const Color primaryColor = Color(0xFF3A4F5C);
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
 
-  // static final List<Map<String, dynamic>> paymentOptions = [
-  //   {
-  //     'icon': Icons.phone_iphone,
-  //     'title': 'Investment and Deposits',
-  //     'subtitle': 'Investments and deposits opportunity for you',
-  //     'iconBgColor': const Color(0xFFFFF6E5),
-  //     'iconColor': const Color(0xFFF2994A),
-  //   },
-  //   {
-  //     'icon': Icons.wifi,
-  //     'title': 'Legal',
-  //     'subtitle': 'View Privacy Policy and Terms of use',
-  //     'iconBgColor': const Color(0xFFE0F7FA),
-  //     'iconColor': const Color(0xFF29B6F6),
-  //   },
-  //   {
-  //     'icon': Icons.credit_card,
-  //     'title': 'Lifestyle',
-  //     'subtitle': 'Convenient access to your daily activities',
-  //     'iconBgColor': const Color(0xFFE8EAF6),
-  //     'iconColor': const Color(0xFF5C6BC0),
-  //   },
-  //   {
-  //     'icon': Icons.atm,
-  //     'title': 'Loans',
-  //     'subtitle': 'View your loans with the bank',
-  //     'iconBgColor': const Color(0xFFFFF3E0),
-  //     'iconColor': const Color(0xFFFF9800),
-  //   },
-  //   {
-  //     'icon': Icons.lightbulb_outline,
-  //     'title': 'Service Requests',
-  //     'subtitle': 'Cheques, Standing Orders, etc',
-  //     'iconBgColor': const Color(0xFFFFFDE7),
-  //     'iconColor': const Color(0xFFFFD600),
-  //   },
-  //   {
-  //     'icon': Icons.account_balance,
-  //     'title': 'Transaction History',
-  //     'subtitle': 'View and search transaction history',
-  //     'iconBgColor': const Color(0xFFE0F2F1),
-  //     'iconColor': const Color(0xFF00897B),
-  //   },
-  // ];
+  static final List<Map<String, dynamic>> paymentOptions = [
+    {
+      'icon': Icons.phone_iphone,
+      'title': 'Investment and Deposits',
+      'subtitle': 'Investments and deposits opportunity for you',
+      'iconBgColor': const Color(0xFFFFF6E5),
+      'iconColor': const Color(0xFFF2994A),
+    },
+    {
+      'icon': Icons.wifi,
+      'title': 'Legal',
+      'subtitle': 'View Privacy Policy and Terms of use',
+      'iconBgColor': const Color(0xFFE0F7FA),
+      'iconColor': const Color(0xFF29B6F6),
+    },
+    {
+      'icon': Icons.credit_card,
+      'title': 'Lifestyle',
+      'subtitle': 'Convenient access to your daily activities',
+      'iconBgColor': const Color(0xFFE8EAF6),
+      'iconColor': const Color(0xFF5C6BC0),
+    },
+    {
+      'icon': Icons.atm,
+      'title': 'Loans',
+      'subtitle': 'View your loans with the bank',
+      'iconBgColor': const Color(0xFFFFF3E0),
+      'iconColor': const Color(0xFFFF9800),
+    },
+    {
+      'icon': Icons.lightbulb_outline,
+      'title': 'Service Requests',
+      'subtitle': 'Cheques, Standing Orders, etc',
+      'iconBgColor': const Color(0xFFFFFDE7),
+      'iconColor': const Color(0xFFFFD600),
+    },
+    {
+      'icon': Icons.account_balance,
+      'title': 'Transaction History',
+      'subtitle': 'View and search transaction history',
+      'iconBgColor': const Color(0xFFE0F2F1),
+      'iconColor': const Color(0xFF00897B),
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {

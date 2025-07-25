@@ -19,7 +19,6 @@ class CardListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      // The ListTile simplifies the layout significantly
       leading: CircleAvatar(
         radius: 20,
         backgroundColor: iconBackgroundColor,
@@ -27,11 +26,11 @@ class CardListItem extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
       ),
       subtitle: Text(
         subtitle,
-        style: TextStyle(color: Colors.grey.shade600, fontSize: 15, fontWeight: FontWeight.w700),
+        style: TextStyle(color: Colors.grey.shade600, fontSize: 14, fontWeight: FontWeight.w700),
       ),
       trailing: Icon(Icons.chevron_right, color: Colors.black),
       onTap: () {

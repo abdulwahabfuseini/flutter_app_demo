@@ -18,25 +18,40 @@ class HelpListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      // The ListTile simplifies the layout significantly
-      leading: CircleAvatar(
-        radius: 20,
-        backgroundColor: iconBackgroundColor,
-        child: Icon(icon, size: 20, color: iconColor),
+    // Wrap the ListTile with a Card widget
+    return Card(
+      // 1. Set the background color of the card
+      color: Colors.white,
+
+      // 2. Set the elevation to control the shadow's size and intensity
+      elevation: 4.0,
+
+      // Optional but highly recommended: add rounded corners for a modern look
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
       ),
-      title: Text(
-        title,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+
+      // The Card's content is your original ListTile
+      child: ListTile(
+        leading: CircleAvatar(
+          radius: 20,
+          backgroundColor: iconBackgroundColor,
+          child: Icon(icon, size: 20, color: iconColor),
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(color: Colors.grey.shade600, fontSize: 14, fontWeight: FontWeight.w700),
+        ),
+        trailing: const Icon(Icons.chevron_right, color: Colors.black),
+        onTap: () {
+          // Action for the tap is handled by the ListTile
+          print("$title tapped!");
+        },
       ),
-      subtitle: Text(
-        subtitle,
-        style: TextStyle(color: Colors.grey.shade600, fontSize: 15, fontWeight: FontWeight.w700),
-      ),
-      trailing: Icon(Icons.chevron_right, color: Colors.black),
-      onTap: () {
-        // Add navigation or action here
-      },
     );
   }
 }
