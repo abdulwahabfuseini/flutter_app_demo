@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/view/pages/payments/payment_widgets.dart';
 
+import '../../../utils/constants.dart';
+
 const Color primaryColor = Color(0xFF3A4F5C);
 
 class PaymentsPage extends StatelessWidget {
   const PaymentsPage({super.key});
-
 
   static final List<Map<String, dynamic>> paymentOptions = [
     {
@@ -74,7 +75,7 @@ class PaymentsPage extends StatelessWidget {
         Expanded(
           child: Container(
             decoration: const BoxDecoration(
-              color: Colors.white,
+              color: kOffWhite,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -122,10 +123,20 @@ class PaymentsPage extends StatelessWidget {
                 color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const Spacer(),
+          // This makes the image both grayscale AND semi-transparent.
           Opacity(
-            opacity: 0.5,
-            child:  Image.asset('assets/images/GCB_brandmark.png', height: 40),
-          ),
+            opacity: 0.6, // Slightly faded
+            child: ColorFiltered(
+              colorFilter: const ColorFilter.matrix(<double>[
+                // Grayscale matrix
+                0.2126, 0.7152, 0.0722, 0, 0,
+                0.2126, 0.7152, 0.0722, 0, 0,
+                0.2126, 0.7152, 0.0722, 0, 0,
+                0,      0,      0,      1, 0,
+              ]),
+              child: Image.asset('assets/images/GCB_brandmark.png', height: 40),
+            ),
+          )
         ],
       ),
     );

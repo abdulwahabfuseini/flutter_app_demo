@@ -1,5 +1,3 @@
-// lib/payment_list_item.dart
-
 import 'package:flutter/material.dart';
 
 class PaymentListItem extends StatelessWidget {

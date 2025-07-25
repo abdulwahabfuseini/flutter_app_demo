@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/view/widget_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 

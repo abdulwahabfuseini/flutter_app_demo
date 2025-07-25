@@ -49,8 +49,12 @@ class _WidgetLayoutState extends State<WidgetLayout> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 8.0,
+        // The key fix is to provide an explicit height for the BottomAppBar
+        // to contain the BottomNavigationBar with its labels.
+        height: 88.0,
+        padding: EdgeInsets.only(top: 30),
+        // shape: const CircularNotchedRectangle(), // This will now work correctly
+        // notchMargin: 8.0,                      // This will now work correctly
         color: Colors.white,
         surfaceTintColor: Colors.white,
         elevation: 10,
@@ -80,8 +84,8 @@ class _WidgetLayoutState extends State<WidgetLayout> {
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
           onTap: onTapedItem, // Use your existing method
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+          backgroundColor: Colors.transparent, // Keep this transparent
+          elevation: 0, // Keep this 0 to prevent double shadows
         ),
       ),
     );
