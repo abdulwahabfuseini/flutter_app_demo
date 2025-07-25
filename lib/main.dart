@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/data/notifiers.dart';
-import 'package:flutter_app_demo/view/widget_layout.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import 'login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,17 +11,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(valueListenable: isDarkModeNotifier, builder: (context, isDarkMode, child) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.from(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.white,
-            // brightness: isDarkMode ? Brightness.dark : Brightness.light
-          ),
+    return MaterialApp(
+      title: 'GCB UI Clone',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3A4F5C)),
+        useMaterial3: true,
+        // Apply the font to the entire app
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
         ),
-        home: const WidgetLayout(),
-      );
-    },);
+        scaffoldBackgroundColor: const Color(0xFFF4F6F8), // Light grey background
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const LoginScreen(),
+    );
   }
 }
