@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-// Make sure this constant is defined somewhere, e.g., in a constants.dart file.
-// const Color kOffWhite = Color(0xFFF5F5F5);
-// For this example, I'll define it here.
 const Color kOffWhite = Color(0xFFF8F8F8);
 
 // Assuming HelpListItem is defined like this for a runnable example:
@@ -57,17 +54,17 @@ class HelpPage extends StatelessWidget {
       'iconColor': const Color(0xFF29B6F6),
     },
     {
-      'icon': Icons.description, // Changed icon for variety
+      'icon': Icons.description,
       'title': 'Frequently Asked Questions (FAQs)',
       'subtitle': 'Your typical questions with answers',
       'iconBgColor': const Color(0xFFE8EAF6),
       'iconColor': const Color(0xFF5C6BC0),
     },
     {
-      'icon': Icons.location_on, // Changed icon for variety
+      'icon': Icons.location_on,
       'title': 'Locate a Branch/ATM',
       'subtitle': 'Find the nearest service point',
-      'iconBgColor': const Color(0xFFE8F5E9), // Changed color for variety
+      'iconBgColor': const Color(0xFFE8F5E9),
       'iconColor': const Color(0xFF66BB6A),
     },
   ];

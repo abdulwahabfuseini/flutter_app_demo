@@ -52,7 +52,7 @@ Widget buildAppBar() {
                 ),
                 IconButton(
                   icon: const Icon(
-                    Icons.notifications_none,
+                    Icons.settings_power_outlined,
                     color: Colors.white,
                     size: 28,
                   ),

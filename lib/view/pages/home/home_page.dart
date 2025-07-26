@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_widgets.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -11,7 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   bool _isBalanceVisible = true;
 
   @override
@@ -34,7 +32,9 @@ class _HomePageState extends State<HomePage> {
                   child: SingleChildScrollView(
                     child: Container(
                       decoration: const BoxDecoration(
-                        color: Color(0xFFF4F6F8), // A very light grey background
+                        color: Color(
+                          0xFFF4F6F8,
+                        ), // A very light grey background
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30),
@@ -53,13 +53,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
   }
-
-
 
   Widget _buildAccountsSection() {
     return Container(
@@ -71,7 +69,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 10,
-          )
+          ),
         ],
       ),
       child: Center(
@@ -79,7 +77,14 @@ class _HomePageState extends State<HomePage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 25.0, bottom: 10),
-              child: const Text('Standard Savings   6021010067519', style: TextStyle(color: Colors.black87, fontSize: 15, fontWeight: FontWeight.bold)),
+              child: const Text(
+                'Standard Savings    6021010067519',
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             const SizedBox(height: 10),
             Row(
@@ -87,10 +92,17 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Text(
                   _isBalanceVisible ? 'GHS 5000.00' : 'GHS ****.**',
-                  style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 IconButton(
-                  icon: Icon(_isBalanceVisible ? Icons.visibility_off_outlined : Icons.visibility_outlined),
+                  icon: Icon(
+                    _isBalanceVisible
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
+                  ),
                   onPressed: () {
                     setState(() {
                       _isBalanceVisible = !_isBalanceVisible;
@@ -103,14 +115,20 @@ class _HomePageState extends State<HomePage> {
             Card(
               color: Colors.white,
               elevation: 2,
-              child:  Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildAccountAction(icon: Icons.share, label: 'Share\nDetails'),
+                  buildAccountAction(
+                    icon: Icons.share,
+                    label: 'Share\nDetails',
+                  ),
                   const SizedBox(width: 30),
-                  buildAccountAction(icon: Icons.history, label: 'Last 10\nTransactions'),
+                  buildAccountAction(
+                    icon: Icons.history,
+                    label: 'Last 10\nTransactions',
+                  ),
                 ],
-              ) ,
+              ),
             ),
             const SizedBox(height: 20),
           ],
@@ -127,8 +145,21 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Quick Access', style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 17)),
-              Text('View All', style: GoogleFonts.poppins(color: Colors.teal, fontWeight: FontWeight.w800,fontSize: 17 )),
+              Text(
+                'Quick Access',
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
+              ),
+              Text(
+                'View All',
+                style: GoogleFonts.poppins(
+                  color: Colors.teal,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 17,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 20),
@@ -136,9 +167,18 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               buildQuickAccessIcon(icon: Icons.swap_horiz, label: 'Transfers'),
-              buildQuickAccessIcon(icon: Icons.receipt_long, label: 'Pay\nBills'),
-              buildQuickAccessIcon(icon: Icons.phone_android, label: '   Buy\nAirtime'),
-              buildQuickAccessIcon(icon: Icons.phone_iphone, label: 'Mobile\nMoney'),
+              buildQuickAccessIcon(
+                icon: Icons.receipt_long,
+                label: 'Pay\nBills',
+              ),
+              buildQuickAccessIcon(
+                icon: Icons.phone_android,
+                label: '   Buy\nAirtime',
+              ),
+              buildQuickAccessIcon(
+                icon: Icons.phone_iphone,
+                label: 'Mobile\nMoney',
+              ),
             ],
           ),
         ],
@@ -169,7 +209,10 @@ class _HomePageState extends State<HomePage> {
                     child: const Center(
                       child: Text(
                         'Recent Activities',
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -182,7 +225,10 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         const Text(
                           'GCB Flash',
-                          style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         const SizedBox(width: 5),
                         Icon(Icons.keyboard_arrow_down, color: Colors.black54),
@@ -200,17 +246,23 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Color(0xFFFFF6E5),
               child: Icon(Icons.phone_android, color: Color(0xFFF2994A)),
             ),
-            title: const Text('Buy Airtime', style: TextStyle(fontWeight: FontWeight.w600)),
+            title: const Text(
+              'Buy Airtime',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
             trailing: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const Text('GHS 3.62', style: TextStyle(fontWeight: FontWeight.bold)),
+                const Text(
+                  'GHS 3.62',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 Icon(Icons.qr_code_scanner, color: Colors.grey.shade600),
               ],
             ),
             onTap: () {},
-          )
+          ),
         ],
       ),
     );
