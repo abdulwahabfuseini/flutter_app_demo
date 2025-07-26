@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/view/widget_layout.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+// Color constants derived from the image for consistency and easy updates.
+const Color gcbAccentColor = Color(0xFF00A99D);
+const Color gcbAvatarBgColor = Color(0xFFFBC02D);
+const Color gcbChatFabColor = Color(0xFF495D69);
+const Color gcbChatIconColor = Color(0xFFF39C12);
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -9,77 +14,82 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24.0,
-              vertical: 20.0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Align(
-                  alignment: Alignment.topRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      spacing: 6,
-                      children: [
-                        Image.asset(
-                          "assets/images/switch.png",
-                          width: 25,
-                          height: 25,
+      // Using a Stack to allow the chat button to float over the content.
+      body: Stack(
+        children: [
+          SafeArea(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // "Switch User?" button at the top right.
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                              "assets/images/switch.png",
+                              width: 25,
+                              height: 25,
+                            ),
+                            const SizedBox(width: 10),
+                            const Text(
+                              'Switch User?',
+                              style: TextStyle(
+                                color: gcbAccentColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
                         ),
-                        Text(
-                          'Switch User?',
-                          style: TextStyle(
-                            color: Colors.teal,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                Center(
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/GCB_brandmark.png',
-                        height: 80,
                       ),
-                      const SizedBox(height: 40),
-                      Row(
+                    ),
+                    const SizedBox(height: 30),
+
+                    // GCB Logo in the center.
+                    Center(
+                      child: Image.asset(
+                        'assets/images/GCB_brandmark.png',
+                        height: 70,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+
+                    // Welcome message section.
+                    Center(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CircleAvatar(
-                            radius: 26,
-                            backgroundColor: Colors.amberAccent,
+                            radius: 28,
+                            backgroundColor: gcbAvatarBgColor,
                             child: Icon(
                               Icons.person,
-                              size: 50,
-                              color: Colors.grey,
+                              size: 40,
+                              color: Colors.grey.shade800,
                             ),
                           ),
                           const SizedBox(width: 12),
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                              Text(
                                 'Welcome Back,',
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 16,
                                   color: Colors.black54,
                                 ),
                               ),
-                              const Text(
+                              Text(
                                 'Abdul Wahab Fuseini',
                                 style: TextStyle(
-                                  fontSize: 19,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
                                 ),
@@ -88,123 +98,150 @@ class LoginPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 60),
-                const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                const SizedBox(height: 40),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Enter Password',
-                    prefixIcon: Image.asset(
-                      "assets/images/mobile.png",
-                      width: 20,
-                      height: 20,
                     ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.teal, fontSize: 16),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 85),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const WidgetLayout(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey.shade400,
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 60),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Divider(color: Colors.grey, height: 1, thickness: 2),
-                    Center(
-                      child: Text('OR', style: TextStyle(color: Colors.grey)),
-                    ),
-                    Divider(color: Colors.grey, height: 1, thickness: 2),
-                  ],
-                ),
+                    const SizedBox(height: 60),
 
-                const SizedBox(height: 10),
-                Center(
-                  child: ElevatedButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 5,
-                      children: [
-                        Image.asset(
-                          "assets/images/facial-recog.png",
-                          width: 40,
-                          height: 40,
-                        ),
-                        const Text(
-                          'Use Face ID Instead?',
-                          style: TextStyle(
-                            color: Colors.teal,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
+                    // "Login" section header.
+                    const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+
+                    // Password input field.
+                    TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Enter Password',
+                        hintStyle: TextStyle(color: Colors.grey.shade400),
+                        prefixIcon: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Image.asset(
+                            "assets/images/mobile.png",
+                            width: 24,
+                            height: 24,
                           ),
                         ),
+                        prefixIconConstraints:
+                        const BoxConstraints(minWidth: 24, minHeight: 24),
+                      ),
+                    ),
+
+                    // "Forgot Password?" link.
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(color: gcbAccentColor, fontSize: 16),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 60),
+
+                    // Main "Login" button.
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const WidgetLayout(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey.shade400,
+                          padding: const EdgeInsets.symmetric(vertical: 18),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 70),
+
+                    // "OR" divider.
+                    Row(
+                      children: [
+                        const Expanded(child: Divider(thickness: 1)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Text('OR',
+                              style: TextStyle(color: Colors.grey.shade600)),
+                        ),
+                        const Expanded(child: Divider(thickness: 1)),
                       ],
                     ),
-                    onPressed: () {},
-                  ),
+                    const SizedBox(height: 20),
+
+                    // "Use Face ID Instead?" button.
+                    Center(
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                              "assets/images/facial-recog.png",
+                              width: 35,
+                              height: 35,
+                            ),
+                            const SizedBox(width: 8),
+                            const Text(
+                              'Use Face ID Instead?',
+                              style: TextStyle(
+                                color: gcbAccentColor,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 80),
+
+                    // Version number at the bottom right.
+                    const Align(
+                      alignment: Alignment.centerRight,
+                      child: Text('Version: 2.4',
+                          style: TextStyle(color: Colors.black)),
+                    ),
+                    const SizedBox(height: 10),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color(0xFF3A4F5C),
-        shape: const CircleBorder(),
-        child: const Icon(Icons.question_mark_rounded, color: Colors.white),
-      ),
-      bottomNavigationBar: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('Version: 2.4', style: TextStyle(color: Colors.grey)),
-          ],
-        ),
+
+          // Positioned floating action button for chat/help.
+          Positioned(
+            bottom: 350, // Positioned to overlap the login button area.
+            right: 0,
+            child: FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: gcbChatFabColor,
+              shape: const CircleBorder(),
+              child: const Icon(
+                Icons.question_answer,
+                color: gcbChatIconColor,
+                size: 28,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
