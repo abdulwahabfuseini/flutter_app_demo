@@ -25,12 +25,12 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      spacing: 3,
+                      spacing: 6,
                       children: [
                         Image.asset(
-                          "assets/images/bot.png",
-                          width: 40,
-                          height: 40,
+                          "assets/images/switch.png",
+                          width: 25,
+                          height: 25,
                         ),
                         Text(
                           'Switch User?',
@@ -106,9 +106,9 @@ class LoginPage extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: 'Enter Password',
                     prefixIcon: Image.asset(
-                      "assets/images/bot.png",
-                      width: 40,
-                      height: 40,
+                      "assets/images/mobile.png",
+                      width: 20,
+                      height: 20,
                     ),
                   ),
                 ),
@@ -164,7 +164,6 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 10),
                 Center(
                   child: ElevatedButton(
-
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 5,
