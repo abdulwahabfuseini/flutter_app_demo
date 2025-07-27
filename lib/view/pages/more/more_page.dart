@@ -78,7 +78,7 @@ class MorePage extends StatelessWidget {
                 ),
                 itemCount: paymentOptions.length,
                 separatorBuilder: (context, index) =>
-                const SizedBox(height: 16),
+                    const SizedBox(height: 16),
                 itemBuilder: (context, index) {
                   final item = paymentOptions[index];
                   return MoreListItem(

@@ -126,8 +126,10 @@ class LoginPage extends StatelessWidget {
                             height: 24,
                           ),
                         ),
-                        prefixIconConstraints:
-                        const BoxConstraints(minWidth: 24, minHeight: 24),
+                        prefixIconConstraints: const BoxConstraints(
+                          minWidth: 24,
+                          minHeight: 24,
+                        ),
                       ),
                     ),
 
@@ -178,8 +180,10 @@ class LoginPage extends StatelessWidget {
                         const Expanded(child: Divider(thickness: 1)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Text('OR',
-                              style: TextStyle(color: Colors.grey.shade600)),
+                          child: Text(
+                            'OR',
+                            style: TextStyle(color: Colors.grey.shade600),
+                          ),
                         ),
                         const Expanded(child: Divider(thickness: 1)),
                       ],
@@ -216,8 +220,10 @@ class LoginPage extends StatelessWidget {
                     // Version number at the bottom right.
                     const Align(
                       alignment: Alignment.centerRight,
-                      child: Text('Version: 2.4',
-                          style: TextStyle(color: Colors.black)),
+                      child: Text(
+                        'Version: 2.4',
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                     const SizedBox(height: 10),
                   ],
