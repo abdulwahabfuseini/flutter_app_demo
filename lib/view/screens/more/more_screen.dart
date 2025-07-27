@@ -19,12 +19,15 @@ class CustomProfileAppBar extends StatelessWidget
         AppBar(
           leading: Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: Image.asset("assets/images/Logo.png", height: 160, width: 160), // Your MTN Logo
+            child: Image.asset(
+              "assets/images/Logo.png",
+              height: 160,
+              width: 160,
+            ), // Your MTN Logo
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-
         // Layer 3: The Profile Avatar, positioned to hang below
         Positioned(
           bottom: -kAvatarRadius, // Pulls the avatar down by its radius
@@ -120,7 +123,7 @@ class MoreScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
                     Column(
-                      crossAxisAlignment:  CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       spacing: 10,
                       children: [
                         Text(
@@ -131,22 +134,28 @@ class MoreScreen extends StatelessWidget {
                             color: Colors.grey,
                           ),
                         ),
-                        GridView.count(crossAxisCount: 4,
-                        crossAxisSpacing: 10,
+                        GridView.count(
+                          crossAxisCount: 4,
+                          crossAxisSpacing: 10,
                           childAspectRatio: 0.8,
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           children: [
-                            myMTNItems(Icons.sd_storage_rounded, "Discover\n  Apps" ),
-                            myMTNItems( Icons.wifi_tethering_rounded, "  Request\n Broadband" ),
-                            myMTNItems(Icons.sim_card, "  Get\nE-sim" ),
-                            myMTNItems(Icons.image_outlined, "  MTN\nRewards" ),
-
+                            myMTNItems(
+                              Icons.sd_storage_rounded,
+                              "Discover\n  Apps",
+                            ),
+                            myMTNItems(
+                              Icons.wifi_tethering_rounded,
+                              "  Request\n Broadband",
+                            ),
+                            myMTNItems(Icons.sim_card, "  Get\nE-sim"),
+                            myMTNItems(Icons.image_outlined, "  MTN\nRewards"),
                           ],
-                        )
+                        ),
                       ],
                     ),
-                    const SizedBox(height: 12,),
+                    const SizedBox(height: 12),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       spacing: 15,
