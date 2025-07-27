@@ -49,8 +49,6 @@ class _WidgetLayoutState extends State<WidgetLayout> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        // The key fix is to provide an explicit height for the BottomAppBar
-        // to contain the BottomNavigationBar with its labels
         height: 88.0,
         padding: EdgeInsets.only(top: 30),
         // shape: const CircularNotchedRectangle(), // This will now work correctly

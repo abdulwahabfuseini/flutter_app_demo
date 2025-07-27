@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
@@ -20,10 +19,7 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
       body: Center(
-        child: Text(
-          "Search Screen",
-          style: TextStyle(fontSize: 20),
-        ),
+        child: Text("Search Screen", style: TextStyle(fontSize: 20)),
       ),
     );
   }

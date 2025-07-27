@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TicketScreen extends StatelessWidget {
   const TicketScreen({super.key});
 
@@ -10,13 +9,9 @@ class TicketScreen extends StatelessWidget {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-              onPressed: (){}
-          ),
-          SizedBox(height: 10,),
-          FloatingActionButton(
-              onPressed: (){}
-          ),
+          FloatingActionButton(onPressed: () {}),
+          SizedBox(height: 10),
+          FloatingActionButton(onPressed: () {}),
         ],
       ),
     );

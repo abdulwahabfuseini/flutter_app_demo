@@ -39,9 +39,7 @@ class _WidgetTreeState extends State<WidgetTree> {
     // );
 
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedItemIndex),
-      ),
+      body: Center(child: _widgetOptions.elementAt(_selectedItemIndex)),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onItemTapped,
         currentIndex: _selectedItemIndex,
