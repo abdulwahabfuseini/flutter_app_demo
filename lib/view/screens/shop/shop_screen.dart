@@ -89,7 +89,7 @@ class ShopScreen extends StatelessWidget {
                       spacing: 15,
                       children: [
                         Text("Get BroadBand", style: TextStyle(fontSize: 18)),
-                        Image.asset("assets/images/shop.jpg")
+                        Image.asset("assets/images/shop.jpg"),
                       ],
                     ),
                   ),

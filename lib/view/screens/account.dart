@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Account extends StatefulWidget {
   const Account({super.key});
 
@@ -20,10 +19,7 @@ class _AccountState extends State<Account> {
         ),
       ),
       body: Center(
-        child: Text(
-          "Account Screen",
-          style: TextStyle(fontSize: 20),
-        ),
+        child: Text("Account Screen", style: TextStyle(fontSize: 20)),
       ),
     );
   }
